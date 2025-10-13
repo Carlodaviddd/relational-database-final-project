@@ -1,9 +1,3 @@
-IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'SKSNationalBankDB')
-BEGIN
-	DROP DATABASE SKSBankNationalDB;
-END
-GO
-
 CREATE DATABASE SKSNationalBankDB;
 GO
 
@@ -145,3 +139,4 @@ CREATE TABLE LoanPayment (
 	FOREIGN KEY (loan_id)
 	REFERENCES Loan (loan_id)
 );
+
