@@ -40,7 +40,7 @@ VALUES
 (10, 'Patricia', 'Ramos', '707 Abad Santos St, Davao City'),
 (11, 'Jerome', 'Aquino', '808 Session Rd, Baguio City'),
 (12, 'Christine', 'Gutierrez', '909 J.P. Laurel St, Iloilo City'),
-(13, 'Nathan', 'Villanueva', '111 Osmeña Blvd, Cebu City'),
+(13, 'Nathan', 'Villanueva', '111 OsmeÃ±a Blvd, Cebu City'),
 (14, 'Faith', 'Domingo', '222 Roxas Ave, Quezon City'),
 (15, 'Adrian', 'Cruz', '333 Mabuhay St, Taguig City'),
 (16, 'Samantha', 'Marquez', '444 Del Pilar St, Manila'),
@@ -55,7 +55,7 @@ VALUES
 (1, 'Roberto', 'Santos', '12 Ayala Ave, Makati City', '2015-06-01', NULL),
 (2, 'Cynthia', 'Reyes', '34 Rizal St, Quezon City', '2018-03-15', 1),
 (3, 'Patrick', 'Garcia', '56 Bonifacio St, Manila', '2020-01-20', 1),
-(4, 'Angela', 'Torres', '78 Osmeña Blvd, Cebu City', '2017-09-10', 1),
+(4, 'Angela', 'Torres', '78 OsmeÃ±a Blvd, Cebu City', '2017-09-10', 1),
 (5, 'Francis', 'Lopez', '90 Mabini St, Davao City', '2019-12-05', 1),
 (6, 'Janelle', 'Cruz', '101 Lacson St, Bacolod City', '2016-04-25', 2),
 (7, 'Miguel', 'Domingo', '102 Panganiban Dr, Naga City', '2018-07-18', 2),
@@ -124,27 +124,74 @@ VALUES
 --Customer Chequing
 INSERT INTO CustomerChequing (customer_id, account_number)
 VALUES 
-(1, 1001), (2, 1002), (3, 1003), (4, 1004), 
-(5, 1005), (6, 1006), (7, 1007), (8, 1008),
-(9, 1009), (10, 1010), (11, 1011), (12, 1012), 
-(13, 1013), (14, 1014), (15, 1015), (16, 1016), 
-(17, 1017), (18, 1018), (19, 1019), (20, 1020);
+(1, 1001),
+(2, 1002),
+(3, 1003),
+(4, 1004), 
+(5, 1005),
+(6, 1006),
+(7, 1007),
+(8, 1008),
+(9, 1009),
+(10, 1010),
+(11, 1011),
+(12, 1012), 
+(13, 1013),
+(14, 1014),
+(15, 1015),
+(16, 1016), 
+(17, 1017),
+(18, 1018),
+(19, 1019),
+(20, 1020);
 
 --Savings Account
 INSERT INTO SavingsAccount (account_number, balance)
 VALUES 
-(2001, 150000.00), (2002, 120000.00), (2003, 135000.00), (2004, 80000.00), (2005, 95000.00),
-(2006, 170000.00), (2007, 110000.00), (2008, 125000.00), (2009, 140000.00), (2010, 100000.00),
-(2011, 130000.00), (2012, 115000.00), (2013, 90000.00), (2014, 160000.00), (2015, 180000.00),
-(2016, 85000.00), (2017, 105000.00), (2018, 145000.00), (2019, 155000.00), (2020, 99000.00);
+(2001, 150000.00),
+(2002, 120000.00),
+(2003, 135000.00),
+(2004, 80000.00),
+(2005, 95000.00),
+(2006, 170000.00),
+(2007, 110000.00),
+(2008, 125000.00),
+(2009, 140000.00),
+(2010, 100000.00),
+(2011, 130000.00),
+(2012, 115000.00),
+(2013, 90000.00),
+(2014, 160000.00),
+(2015, 180000.00),
+(2016, 85000.00),
+(2017, 105000.00),
+(2018, 145000.00),
+(2019, 155000.00),
+(2020, 99000.00);
 
 --Customer Savings
 INSERT INTO CustomerSavings (customer_id, account_number)
 VALUES 
-(1, 2001), (2, 2002), (3, 2003), (4, 2004), (5, 2005),
-(6, 2006), (7, 2007), (8, 2008), (9, 2009), (10, 2010),
-(11, 2011), (12, 2012), (13, 2013), (14, 2014), (15, 2015),
-(16, 2016), (17, 2017), (18, 2018), (19, 2019), (20, 2020);
+(1, 2001), 
+(2, 2002), 
+(3, 2003),
+(4, 2004),
+(5, 2005),
+(6, 2006),
+(7, 2007),
+(8, 2008),
+(9, 2009), 
+(10, 2010),
+(11, 2011), 
+(12, 2012), 
+(13, 2013), 
+(14, 2014), 
+(15, 2015),
+(16, 2016), 
+(17, 2017), 
+(18, 2018), 
+(19, 2019), 
+(20, 2020);
 
 --Overdraft
 INSERT INTO Overdraft (account_number, overdraft_date, amount, check_number)
@@ -197,11 +244,26 @@ VALUES
 --Customer Loans
 INSERT INTO CustomerLoan (customer_id, loan_id)
 VALUES 
-(1, 3001), (2, 3002), (3, 3003), (4, 3004),
-(5, 3005), (6, 3006), (7, 3007), (8, 3008),
-(9, 3009), (10, 3010), (11, 3011), (12, 3012),
-(13, 3013), (14, 3014), (15, 3015), (16, 3016), 
-(17, 3017), (18, 3018), (19, 3019), (20, 3020);
+(1, 3001),
+(2, 3002), 
+(3, 3003),
+(4, 3004),
+(5, 3005),
+(6, 3006),
+(7, 3007),
+(8, 3008),
+(9, 3009),
+(10, 3010),
+(11, 3011),
+(12, 3012),
+(13, 3013),
+(14, 3014),
+(15, 3015),
+(16, 3016), 
+(17, 3017), 
+(18, 3018),
+(19, 3019),
+(20, 3020);
 
 --Loan Payments
 INSERT INTO LoanPayment (loan_id, payment_id, payment_date, amount)
@@ -226,18 +288,3 @@ VALUES
 (3018, 1, '2023-04-20', 49000.00),
 (3019, 1, '2023-04-25', 53000.00),
 (3020, 1, '2023-05-01', 40000.00);
-
-SELECT * FROM Branch;
-SELECT * FROM ChequingAccount;
-SELECT * FROM CustomerChequing;
-SELECT * FROM CustomerLoan;
-SELECT * FROM Customers;
-SELECT * FROM CustomerSavings;
-SELECT * FROM Employees;
-SELECT * FROM Loan;
-SELECT * FROM LoanPayment;
-SELECT * FROM Location;
-SELECT * FROM Overdraft;
-SELECT * FROM SavingsAccount;
-
-
