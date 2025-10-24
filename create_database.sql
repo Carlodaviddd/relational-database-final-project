@@ -1,3 +1,10 @@
+--DELETE DATABASE IF SKSNationalBankDB already exist
+IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'SKSNationalBankDB')
+BEGIN
+DROP DATABASE SKSNationalBankDB;
+END
+GO
+
 CREATE DATABASE SKSNationalBankDB;
 GO
 
@@ -12,12 +19,35 @@ CREATE TABLE Branch (
 	loans DECIMAL(15, 2)
 );
 
+--Address
+CREATE TABLE Address(
+	address_id INT PRIMARY KEY,
+	house_number INT,
+	street INT,
+	city VARCHAR(50),
+	province VARCHAR(50),
+	postal_code VARCHAR(50)
+);
+
 --Customers
 CREATE TABLE Customers(
 	customer_id INT PRIMARY KEY,
+	address_id INT,
 	first_name VARCHAR(100),
 	last_name VARCHAR(100),
-	customer_home_address VARCHAR(200)
+	customer_home_address VARCHAR(50),
+
+	CONSTRAINT FK_CustomerAddress
+	FOREIGN KEY (address_id)
+	REFERENCES Address(address_id)
+);
+
+--CustomerEmployee
+CREATE TABLE CustomerEmployee(
+	customer_id INT,
+	employee_id INT,
+	position VARCHAR(50)
+	PRIMARY KEY(customer_id, employee_id)
 );
 
 --Employees
@@ -25,13 +55,19 @@ CREATE TABLE Employees (
 	employee_id INT PRIMARY KEY,
 	first_name VARCHAR(100),
 	last_name VARCHAR(100),
+	address_id INT,
 	employee_home_address VARCHAR(200),
 	start_date DATE,
-	manager_id INT NULL
+	manager_id INT NULL,
+	position VARCHAR (100),
 
 	CONSTRAINT FK_Manager
 	FOREIGN KEY (manager_id)
-	REFERENCES Employees(employee_id)
+	REFERENCES Employees(employee_id),
+
+	CONSTRAINT FK_EmployeeAddress
+	FOREIGN KEY (address_id)
+	REFERENCES Address(address_id)
 );
 
 --Location
@@ -40,7 +76,7 @@ CREATE TABLE Location (
 	location_type VARCHAR(100),
 	branch_name VARCHAR(100),
 	
-	CONSTRAINT FK_Location_Branch
+	CONSTRAINT FK_LocationBranch
 	FOREIGN KEY (branch_name)
 	REFERENCES Branch(branch_name)
 );
@@ -48,14 +84,14 @@ CREATE TABLE Location (
 --Chequing Account
 CREATE TABLE ChequingAccount (
 	account_number INT PRIMARY KEY,
-	balance DECIMAL(15, 2),
+	balance DECIMAL(15, 2)
 );
-
 
 --Customer's Chequing Account
 CREATE TABLE CustomerChequing (
 	customer_id INT,
 	account_number INT,
+	last_access DATE,
 	PRIMARY KEY (customer_id, account_number),
 
 	CONSTRAINT FK_CustomerChequing_Customer
@@ -70,7 +106,9 @@ CREATE TABLE CustomerChequing (
 --Savings Account
 CREATE TABLE SavingsAccount (
 	account_number INT PRIMARY KEY,
-	balance DECIMAL (15, 2)
+	balance DECIMAL (15, 2),
+	interest_rate DECIMAL(15,2),
+	last_access DATE
 );
 
 --Customer's Savings Account
@@ -139,4 +177,3 @@ CREATE TABLE LoanPayment (
 	FOREIGN KEY (loan_id)
 	REFERENCES Loan (loan_id)
 );
-
