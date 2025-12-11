@@ -1,3 +1,8 @@
+--GROUP MEMBER NAMES:
+--Joy Francisco
+--Carlo David
+--Ivan Herrera
+
 --Switch to newly created database
 USE SKSNationalBankDB;
 GO
