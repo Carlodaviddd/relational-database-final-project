@@ -1,3 +1,8 @@
+--GROUP MEMBER NAMES:
+--Joy Francisco
+--Carlo David
+--Ivan Herrera
+
 --DELETE DATABASE IF SKSNationalBankDB already exist
 USE master;
 GO
@@ -200,4 +205,26 @@ CREATE TABLE LoanPayment (
 	CONSTRAINT FK_LoanPayment_Loan
 	FOREIGN KEY (loan_id)
 	REFERENCES Loan (loan_id)
+);
+
+--Transaction
+CREATE TABLE Transaction (
+	transaction_id INT IDENTITY (1,1) PRIMARY KEY,
+	account_number CHAR(4),
+	branch_id INT,
+	transaction_date DATETIME,
+	transaction_type VARCHAR (50) NOT NULL,
+	amount DECIMAL(15,2) NOT NULL,
+
+	CONSTRAINT FK_Transaction_Chequing
+	FOREIGN KEY (account_number)
+	REFERENCES ChequingAccount (account_number),
+
+	CONSTRAINT FK_Transaction_Savings
+	FOREIGN KEY (account_number)
+	REFERENCES SavingsAccount (account_number),
+
+	CONSTRAINT FK_Transaction_Branch
+	FOREIGN KEY (branch_id)
+	REFERENCES Branch (branch_id)
 );
