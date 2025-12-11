@@ -7,7 +7,7 @@
 USE SKSNationalBankDB;
 GO
 
---Audit
+--------------CRETE Audit--------------
 CREATE TABLE Audit (
 	audit_id INT IDENTITY (1,1) PRIMARY KEY,
 	audit_description VARCHAR (500),
