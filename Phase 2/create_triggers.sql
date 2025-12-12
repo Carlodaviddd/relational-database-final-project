@@ -1,4 +1,4 @@
---GROUP MEMBER NAMES:
+--GROUP E MEMBER NAMES:
 --Joy Francisco
 --Carlo David
 --Ivan Herrera
@@ -31,6 +31,10 @@ SELECT * FROM Customers;
 INSERT INTO Customers (address_id, first_name, last_name)
 VALUES (1, 'Alden', 'Richards');
 
+
+INSERT INTO Customers (address_id, first_name, last_name)
+VALUES (12, 'Narda', 'Darna');
+
 SELECT * FROM Audit;
 
 --trg2: Employee Promotion
@@ -51,12 +55,17 @@ BEGIN
 	WHERE i.position <> d.position;
 END;
 
---Test
+--Test--
 SELECT * FROM Employees;
 
 UPDATE Employees
 SET position = 'Senior Loan Officer'
 WHERE employee_id = 2;
+
+UPDATE Employees
+SET position = 'Senior Loan Officer'
+WHERE employee_id = 5;
+
 
 SELECT * FROM Audit;
 
@@ -87,5 +96,9 @@ SELECT * FROM ChequingAccount;
 UPDATE ChequingAccount
 SET balance = balance + 1000
 WHERE account_number = '0001';
+
+UPDATE ChequingAccount
+SET balance = balance + 2500
+WHERE account_number = '0005';
 
 SELECT * FROM Audit;
