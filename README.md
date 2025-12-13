@@ -9,7 +9,7 @@ This project contains SQL scripts and an ERD for the **SKS National Bank Databas
 
 ## Phase 2 Contents
 1. `create_user.sql` - Scripts for creating database users.
-2 `create_triggers.sql` - Triggers implemented:
+2. `create_triggers.sql` - Triggers implemented:
    - Create Audit Table
    - New customer trigger
    - Employee promotion trigger
